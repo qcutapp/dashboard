@@ -1,0 +1,28 @@
+$font-family-sans-serif: "Poppins";
+
+$primary: rgb(255, 30, 60);
+
+// $input-border-width: 0;
+// $input-focus-box-shadow: none;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600&display=swap");
+@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap-daterangepicker/daterangepicker.css';
+
+@import "~react-toastify/scss/main.scss";
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+
+.venue-brand {
+  height: 64px;
+  width: auto;
+}
+
+.svg-inline--fa {
+  margin-right: 1rem;
+}
