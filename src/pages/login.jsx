@@ -5,8 +5,8 @@ import axios from "axios";
 import { AppStore } from "store";
 
 export default function Login() {
-  const [email, setEmail] = useState("test@gmail.com");
-  const [password, setPassword] = useState("pass");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const { appDispatch } = useContext(AppStore);
 
@@ -26,11 +26,19 @@ export default function Login() {
   };
 
   return (
-    <div className="h-100 d-flex justify-content-center align-items-center">
-      <div className="card">
-        <div className="card-body p-5">
-          <h5 className="card-title text-center">Venue Sign-In</h5>
-          <form>
+    <div className="login min-vh-100 d-flex justify-content-center align-items-center">
+      <div className="card rounded-pill shadow">
+        <div className="card-body px-5 pt-3">
+          <div className="login-brand text-center">
+            <img
+              className="img-fluid mx-auto rounded-circle mb-4"
+              src={process.env.PUBLIC_URL + "/logo.png"}
+              style={{ maxWidth: "15%", minWidth: "64px" }}
+              alt="QCut Logo"
+            />
+            <h4 className="card-title font-weight-bold">Venue Sign-In</h4>
+          </div>
+          <form className="mt-5">
             <div className="form-group mb-3">
               <input
                 type="email"
@@ -40,7 +48,7 @@ export default function Login() {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div className="form-group mb-3">
+            <div className="form-group mt-3 mb-4">
               <input
                 type="password"
                 className="form-control"
@@ -49,7 +57,7 @@ export default function Login() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <div className="form-group mb-3">
+            <div className="form-group mt-4">
               <button
                 type="button"
                 className="btn btn-primary btn-block"

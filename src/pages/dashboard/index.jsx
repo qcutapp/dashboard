@@ -62,28 +62,51 @@ export default function Dashboard() {
 
   return (
     <div className="container-fluid">
-      <div className="row">
-        <div className="col-md-3 col-lg-2 bg-light">
-          <div className="d-flex flex-column justify-content-center align-items-center mt-3 mb-5">
-            <img className="venue-brand" src={venue.image} alt="Venue Logo" />
+      <div className="row vh-100">
+        <div className="col-sm col-md-3 col-lg-2 d-flex flex-column h-100">
+          <div className="venue-brand d-flex justify-content-center align-items-center border-bottom my-3 pb-3">
+            <div
+              className="venue-logo"
+              style={{ backgroundImage: `url(${venue.image})` }}
+            ></div>
             <div className="ml-2">
               <h5 className="m-0">{venue.name}</h5>
-              <p className="m-0">{user.name}</p>
+              <small className="font-weight-light text-muted m-0">
+                {user.name}
+              </small>
             </div>
           </div>
-          <ul className="nav flex-column">
-            <NavLink className="nav-link" to={`${match.url}/history`}>
-              <FontAwesomeIcon icon={faHistory} />
-              Order History
-            </NavLink>
-            <NavLink className="nav-link" to={`${match.url}/menu`}>
-              <FontAwesomeIcon icon={faList} />
-              Menu
-            </NavLink>
-            <NavLink className="nav-link" to={`${match.url}/stripe`}>
-              <FontAwesomeIcon icon={faChartBar} />
-              Stripe
-            </NavLink>
+          <ul className="nav flex-column flex-grow-1">
+            <li className="nav-link p-0 my-2">
+              <NavLink
+                className="btn btn-block text-left rounded-pill"
+                activeClassName="btn-primary"
+                to={`${match.url}/history`}
+              >
+                <FontAwesomeIcon icon={faHistory} />
+                Order History
+              </NavLink>
+            </li>
+            <li className="nav-link p-0 my-2">
+              <NavLink
+                className="btn btn-block text-left rounded-pill"
+                activeClassName="btn-primary"
+                to={`${match.url}/menu`}
+              >
+                <FontAwesomeIcon icon={faList} />
+                Menu
+              </NavLink>
+            </li>
+            <li className="nav-link p-0 my-2">
+              <a
+                className="btn btn-block text-left rounded-pill"
+                href="https://connect.stripe.com/login"
+                target="new"
+              >
+                <FontAwesomeIcon icon={faChartBar} />
+                Stripe
+              </a>
+            </li>
           </ul>
           <div
             className="btn btn-link"
@@ -92,7 +115,7 @@ export default function Dashboard() {
             Logout
           </div>
         </div>
-        <div className="col-md-9 col-lg-10">
+        <div className="col-main col-sm col-md-9 col-lg-10 h-100 px-4">
           <Switch>
             {/* History */}
             <Route path={`${match.path}/history`} component={History}></Route>
